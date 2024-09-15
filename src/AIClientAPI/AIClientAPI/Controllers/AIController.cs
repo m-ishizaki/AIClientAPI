@@ -38,20 +38,21 @@ public class AIScriptController : Microsoft.AspNetCore.Mvc.ControllerBase
             document.getElementById(idButton).setAttribute('onclick', `aiClientAPI('${idTextarea}');return false;`);
         }
         function aiClientAPI(id) {
+            alert('要約します');
             var elm = document.getElementById(id);
             fetch('./AI', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userMessage: elm.value })
             })
-                .then(response => response.json())
-                .then(data => {
-                    elm.value = data.aiMessage;
-                })
-                .catch(error => {
-                    alert(error);
-                });
-
+            .then(response => response.json())
+            .then(data => {
+                elm.value = data.aiMessage;
+                alert('要約しました');
+            })
+            .catch(error => {
+                alert(error);
+            });
         }
     """;
 }

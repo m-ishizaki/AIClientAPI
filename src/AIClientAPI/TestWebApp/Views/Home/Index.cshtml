@@ -12,7 +12,8 @@
         <textarea id="testTextarea" rows="20" cols="100">コミット履歴が恥ずかしい。でも GitHub で PR 出したい！ メモ。技術 Visual Studio。自分のコミット履歴が恥ずかしい、でも C# Tokyo のお題にチャレンジして PR したい！ そう考えていますね。大丈夫です、コミット履歴などきれいにする必要はありません。何なら既存を破壊するような PR を出しても大丈夫です！ 最後に整っていればそれでよいのですし、マージ後に最後に整えますので。それでもやっぱり恥ずかしい。わかります。私も恥ずかしいです。なので簡単にコミットをきれいにしつつ PR する手順で必要なコマンド等をメモしておきます。私自身が覚えられないので、スニペットとしておいておきたいので。</textarea>
     </form>
     <script>
-        const script = document.createElement('script'); script.src = "./aiscript?" + String(new Date().getTime()); document.head.appendChild(script);
-        const interal = setInterval(function() { if (typeof addAIClientAPI !== 'undefined') { addAIClientAPI('testButton', 'testTextarea'); clearInterval(interal); } }, 33);
+        const site = '';
+        const script = document.createElement('script'); script.src = `${site}/aiscript?${String(new Date().getTime())}`; document.head.appendChild(script);
+        const interal = setInterval(function() { if (typeof addAIClientAPI !== 'undefined') { addAIClientAPI('testButton', 'testTextarea', site); clearInterval(interal); } }, 33);
     </script>
 </div>

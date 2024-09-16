@@ -34,13 +34,13 @@ public class AIScriptController : Microsoft.AspNetCore.Mvc.ControllerBase
 {
     [Microsoft.AspNetCore.Mvc.HttpGet()]
     public string Get() => """
-        function addAIClientAPI(idButton, idTextarea) {
-            document.getElementById(idButton).setAttribute('onclick', `aiClientAPI('${idTextarea}');return false;`);
+        function addAIClientAPI(idButton, idTextarea, site) {
+            document.getElementById(idButton).setAttribute('onclick', `aiClientAPI('${idTextarea}', site);return false;`);
         }
-        function aiClientAPI(id) {
+        function aiClientAPI(id, site) {
             alert('要約します');
             var elm = document.getElementById(id);
-            fetch('./AI', {
+            fetch(`${site}/AI`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userMessage: elm.value })
